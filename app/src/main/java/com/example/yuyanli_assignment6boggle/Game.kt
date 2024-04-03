@@ -13,7 +13,7 @@ import java.io.InputStreamReader
  */
 class Game(private val context: Context) {
     // Use GPT to help make the code more readable
-    val BOARD_SIZE = 8
+    val BOARD_SIZE = 5
     private val MIN_WORD_LENGTH = 4
     private val PENALTY_POINTS = 10
     private val VOWEL_POINTS = 5
@@ -58,7 +58,7 @@ class Game(private val context: Context) {
             }
         }
         // Predefined start for easy testing. Remove in production or shuffle for actual gameplay.
-        listOf("APPLES", "DEVICE","min","host").forEachIndexed { index, word ->
+        listOf("APPLE", "MAYBE","MIN","HOST").forEachIndexed { index, word ->
             word.forEachIndexed { charIndex, c ->
                 board[index][charIndex] = c
             }

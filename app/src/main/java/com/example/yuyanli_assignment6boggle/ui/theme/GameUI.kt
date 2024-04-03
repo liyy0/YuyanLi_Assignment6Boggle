@@ -107,7 +107,7 @@ fun BoardUI(game: Game, context: android.content.Context){
                 text = game.word
             }) // NewGameButton takes the right side of the second line
         }
-        Text(text = "For grading only:\n First line and second line is valid input.\n Third line is less than 4 char. \n Forth is insufficient vowel. \n Shake the device to reset the game",
+        Text(text = "For grading only:\n First line is valid input with double score.\n Second line is valid input.\n Third line is less than 4 char. \n Forth is insufficient vowel. \n Shake the device to reset the game",
             fontSize = 15.sp,
             textAlign = TextAlign.Left,
             modifier = Modifier.padding(vertical = 8.dp))
@@ -115,7 +115,7 @@ fun BoardUI(game: Game, context: android.content.Context){
     }
 
 
-    // Shake detection
+    // Shake detection from gpt https://chat.openai.com/share/cd911ca1-f660-46d7-9d6f-f1e84582ec31
     val sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
     val accelerometer: Sensor? = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
     val shakeListener = object : SensorEventListener {
@@ -237,8 +237,8 @@ fun LetterButton(
     param: (Any) -> Unit
 ){
     val boardSize = 8 // Change this to the desired board size
-    val buttonSize = 40.dp // Adjust the button size as per requirement
-    val fontSize = 12.sp // Adjust the font size for better readability
+    val buttonSize = 55.dp // Adjust the button size as per requirement
+    val fontSize = 20.sp // Adjust the font size for better readability
     TextButton(
         onClick = {
             if(game.isPositionClickable(x, y)){
